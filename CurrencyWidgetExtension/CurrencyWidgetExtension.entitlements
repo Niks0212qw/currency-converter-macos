@@ -1,0 +1,484 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>com.apple.security.app-sandbox</key>
+	<true/>
+	<key>com.apple.security.application-groups</key>
+	<array>
+		<string>group.com.bonitalabs.currencyconverter
+
+// Для хранения отладочной информации
+class DebugStorage {
+    static let shared = DebugStorage()
+    
+    enum Keys: String {
+        case lastError
+        case apiResponse
+        case lastUpdated
+    }
+    
+    private let userDefaults = UserDefaults(suiteName: "group.com.yourcompany.currencyconverter")
+    
+    func saveError(_ error: String) {
+        userDefaults?.set(error, forKey: Keys.lastError.rawValue)
+        userDefaults?.set(Date(), forKey: Keys.lastUpdated.rawValue)
+        userDefaults?.synchronize()
+    }
+    
+    func saveResponse(_ response: String) {
+        userDefaults?.set(response, forKey: Keys.apiResponse.rawValue)
+        userDefaults?.set(Date(), forKey: Keys.lastUpdated.rawValue)
+        userDefaults?.synchronize()
+    }
+    
+    func getLastError() -&gt; String {
+        return userDefaults?.string(forKey: Keys.lastError.rawValue) ?? "Нет ошибок"
+    }
+    
+    func getApiResponse() -&gt; String {
+        return userDefaults?.string(forKey: Keys.apiResponse.rawValue) ?? "Нет данных"
+    }
+    
+    func getLastUpdatedTime() -&gt; String {
+        guard let date = userDefaults?.object(forKey: Keys.lastUpdated.rawValue) as? Date else {
+            return "Никогда"
+        }
+        
+        let formatter = DateFormatter()
+        formatter.dateFormat = "dd.MM.yyyy, HH:mm:ss"
+        return formatter.string(from: date)
+    }
+}
+
+// Структура представления данных для виджета
+struct CurrencyRateEntry: TimelineEntry {
+    let date: Date
+    let rates: [CurrencyRate]
+    let lastUpdated: String
+    let debug: String
+}
+
+// Модель для хранения информации о курсе валюты
+struct CurrencyRate: Identifiable, Hashable {
+    var id: String { code }
+    let code: String
+    let name: String
+    let rate: Double
+    let flagEmoji: String
+    
+    // Метод для форматирования курса с двумя десятичными знаками
+    func formattedRate() -&gt; String {
+        let formatter = NumberFormatter()
+        formatter.numberStyle = .decimal
+        formatter.maximumFractionDigits = 2
+        formatter.minimumFractionDigits = 2
+        return formatter.string(from: NSNumber(value: rate)) ?? "\(rate)"
+    }
+}
+
+// Провайдер для получения данных о курсах валют
+struct CurrencyRateProvider: TimelineProvider {
+    // Заглушка для предварительного просмотра
+    func placeholder(in context: Context) -&gt; CurrencyRateEntry {
+        CurrencyRateEntry(
+            date: Date(),
+            rates: [
+                CurrencyRate(code: "USD", name: "Доллар США", rate: 85.5, flagEmoji: "🇺🇸"),
+                CurrencyRate(code: "EUR", name: "Евро", rate: 92.7, flagEmoji: "🇪🇺"),
+                CurrencyRate(code: "TRY", name: "Турецкая лира", rate: 2.65, flagEmoji: "🇹🇷"),
+                CurrencyRate(code: "AED", name: "Дирхам ОАЭ", rate: 23.3, flagEmoji: "🇦🇪")
+            ],
+            lastUpdated: "01.01.2025, 12:00",
+            debug: "Предпросмотр"
+        )
+    }
+    
+    // Снепшот для предварительного просмотра
+    func getSnapshot(in context: Context, completion: @escaping (CurrencyRateEntry) -&gt; Void) {
+        // Используем заглушку для быстрого отображения
+        let entry = fallbackEntry("Снепшот")
+        completion(entry)
+        
+        // Асинхронно пытаемся получить реальные данные
+        loadData { entry in
+            completion(entry)
+        }
+    }
+    
+    // Получение таймлайна с актуальными данными
+    func getTimeline(in context: Context, completion: @escaping (Timeline&lt;CurrencyRateEntry&gt;) -&gt; Void) {
+        loadData { entry in
+            // Обновляем каждые 15 минут
+            let nextUpdateDate = Calendar.current.date(byAdding: .minute, value: 15, to: Date()) ?? Date().addingTimeInterval(900)
+            let timeline = Timeline(entries: [entry], policy: .after(nextUpdateDate))
+            completion(timeline)
+        }
+    }
+    
+    // Загрузка данных для виджета
+    private func loadData(completion: @escaping (CurrencyRateEntry) -&gt; Void) {
+        // Сначала показываем заглушку с сообщением о загрузке
+        let defaultEntry = fallbackEntry("Загрузка...")
+        
+        // Создаем URL для запроса к ЦБ РФ
+        guard let url = URL(string: "https://www.cbr-xml-daily.ru/daily_json.js") else {
+            DebugStorage.shared.saveError("Неверный URL для API ЦБ РФ")
+            completion(defaultEntry)
+            return
+        }
+        
+        // Создаем задачу для запроса
+        let task = URLSession.shared.dataTask(with: url) { data, response, error in
+            // Проверяем наличие ошибок
+            if let error = error {
+                DebugStorage.shared.saveError("Ошибка сети: \(error.localizedDescription)")
+                completion(defaultEntry)
+                return
+            }
+            
+            // Проверяем статус HTTP-ответа
+            if let httpResponse = response as? HTTPURLResponse {
+                if httpResponse.statusCode != 200 {
+                    DebugStorage.shared.saveError("Код ответа HTTP: \(httpResponse.statusCode)")
+                    completion(defaultEntry)
+                    return
+                }
+            }
+            
+            // Проверяем наличие данных
+            guard let data = data else {
+                DebugStorage.shared.saveError("Нет данных в ответе")
+                completion(defaultEntry)
+                return
+            }
+            
+            // Сохраняем часть ответа для отладки
+            if let responsePreview = String(data: data.prefix(100), encoding: .utf8) {
+                DebugStorage.shared.saveResponse(responsePreview)
+            }
+            
+            // Парсим JSON-ответ
+            do {
+                // Структура для декодирования ответа ЦБ РФ
+                struct CBRResponse: Decodable {
+                    let Date: String
+                    let Valute: [String: CBRCurrency]
+                    
+                    struct CBRCurrency: Decodable {
+                        let CharCode: String
+                        let Name: String
+                        let Value: Double
+                        let Nominal: Int
+                    }
+                }
+                
+                // Декодируем ответ
+                let cbrResponse = try JSONDecoder().decode(CBRResponse.self, from: data)
+                var rates: [CurrencyRate] = []
+                
+                // Обрабатываем данные о валютах
+                let requiredCurrencies = ["USD", "EUR", "TRY", "AED"]
+                for code in requiredCurrencies {
+                    if let currency = cbrResponse.Valute[code] {
+                        let rate = currency.Value / Double(currency.Nominal)
+                        var name = currency.Name
+                        var emoji = "🏴"
+                        
+                        // Устанавливаем эмодзи флагов и название
+                        switch code {
+                        case "USD":
+                            name = "Доллар США"
+                            emoji = "🇺🇸"
+                        case "EUR":
+                            name = "Евро"
+                            emoji = "🇪🇺"
+                        case "TRY":
+                            name = "Турецкая лира"
+                            emoji = "🇹🇷"
+                        case "AED":
+                            name = "Дирхам ОАЭ"
+                            emoji = "🇦🇪"
+                        default:
+                            break
+                        }
+                        
+                        rates.append(CurrencyRate(
+                            code: code,
+                            name: name,
+                            rate: rate,
+                            flagEmoji: emoji
+                        ))
+                    }
+                }
+                
+                // Форматируем дату
+                let dateFormatter = DateFormatter()
+                dateFormatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ssZ"
+                
+                let outputFormatter = DateFormatter()
+                outputFormatter.dateFormat = "dd.MM.yyyy, HH:mm"
+                
+                var formattedDate = outputFormatter.string(from: Date())
+                
+                if let date = dateFormatter.date(from: cbrResponse.Date) {
+                    formattedDate = outputFormatter.string(from: date)
+                }
+                
+                // Создаем и возвращаем запись с актуальными данными
+                let successEntry = CurrencyRateEntry(
+                    date: Date(),
+                    rates: rates,
+                    lastUpdated: formattedDate,
+                    debug: "Обновлено \(DebugStorage.shared.getLastUpdatedTime())"
+                )
+                
+                completion(successEntry)
+                
+            } catch {
+                // В случае ошибки декодирования
+                DebugStorage.shared.saveError("Ошибка парсинга: \(error.localizedDescription)")
+                completion(defaultEntry)
+            }
+        }
+        
+        // Запускаем задачу
+        task.resume()
+    }
+    
+    // Заглушка для случаев, когда нет доступа к данным
+    private func fallbackEntry(_ debugMessage: String) -&gt; CurrencyRateEntry {
+        let formatter = DateFormatter()
+        formatter.dateFormat = "dd.MM.yyyy, HH:mm"
+        
+        return CurrencyRateEntry(
+            date: Date(),
+            rates: [
+                CurrencyRate(code: "USD", name: "Доллар США", rate: 85.5, flagEmoji: "🇺🇸"),
+                CurrencyRate(code: "EUR", name: "Евро", rate: 92.7, flagEmoji: "🇪🇺"),
+                CurrencyRate(code: "TRY", name: "Турецкая лира", rate: 2.65, flagEmoji: "🇹🇷"),
+                CurrencyRate(code: "AED", name: "Дирхам ОАЭ", rate: 23.3, flagEmoji: "🇦🇪")
+            ],
+            lastUpdated: formatter.string(from: Date()),
+            debug: debugMessage + " | Ошибка: " + DebugStorage.shared.getLastError()
+        )
+    }
+}
+
+// Вид для среднего размера виджета
+struct CurrencyWidgetMediumView: View {
+    var entry: CurrencyRateProvider.Entry
+    
+    var body: some View {
+        VStack(spacing: 0) {
+            // Список валют без заголовков
+            VStack(spacing: 8) {
+                ForEach(entry.rates) { rate in
+                    HStack {
+                        Text(rate.flagEmoji)
+                            .font(.title2)
+                        
+                        Text(rate.code)
+                            .font(.headline)
+                            .foregroundColor(.white)
+                        
+                        Spacer()
+                        
+                        Text("\(rate.formattedRate()) ₽")
+                            .font(.headline)
+                            .foregroundColor(.white)
+                    }
+                    .padding(.horizontal)
+                    
+                    if rate.id != entry.rates.last?.id {
+                        Divider()
+                            .background(Color.gray.opacity(0.3))
+                            .padding(.horizontal)
+                    }
+                }
+            }
+            .padding(.top, 10)
+            
+            Spacer()
+            
+            // Информация об обновлении и отладка
+            VStack(spacing: 2) {
+                Text("Обновлено: \(entry.lastUpdated)")
+                    .font(.caption)
+                    .foregroundColor(.gray)
+                
+                Text(entry.debug)
+                    .font(.caption2)
+                    .foregroundColor(.red)
+                    .lineLimit(1)
+            }
+            .padding(.horizontal)
+            .padding(.bottom, 5)
+        }
+        .background(Color.black)
+    }
+}
+
+// Остальные виды для других размеров виджета (аналогично предыдущему коду)
+// ...
+
+// Конфигурация виджета
+struct CurrencyWidget: Widget {
+    let kind: String = "CurrencyWidget"
+    
+    var body: some WidgetConfiguration {
+        StaticConfiguration(kind: kind, provider: CurrencyRateProvider()) { entry in
+            CurrencyWidgetEntryView(entry: entry)
+        }
+        .configurationDisplayName("Курсы валют")
+        .description("Отображает курсы валют по отношению к рублю")
+        .supportedFamilies([.systemSmall, .systemMedium, .systemLarge])
+    }
+}
+
+// Выбор представления в зависимости от размера виджета
+struct CurrencyWidgetEntryView: View {
+    var entry: CurrencyRateProvider.Entry
+    @Environment(\.widgetFamily) var family
+    
+    var body: some View {
+        switch family {
+        case .systemSmall:
+            CurrencyWidgetSmallView(entry: entry)
+        case .systemMedium:
+            CurrencyWidgetMediumView(entry: entry)
+        case .systemLarge:
+            CurrencyWidgetLargeView(entry: entry)
+        default:
+            CurrencyWidgetMediumView(entry: entry)
+        }
+    }
+}
+
+// Виды для маленького и большого размеров виджета
+
+struct CurrencyWidgetSmallView: View {
+    var entry: CurrencyRateProvider.Entry
+    
+    var body: some View {
+        VStack(spacing: 5) {
+            if !entry.rates.isEmpty {
+                HStack {
+                    Text(entry.rates[0].flagEmoji)
+                        .font(.title2)
+                    
+                    VStack(alignment: .leading) {
+                        Text(entry.rates[0].code)
+                            .font(.headline)
+                            .foregroundColor(.white)
+                        
+                        Text("\(entry.rates[0].formattedRate()) ₽")
+                            .font(.subheadline)
+                            .foregroundColor(.white)
+                    }
+                }
+                
+                Divider()
+                    .background(Color.gray.opacity(0.3))
+                    .padding(.horizontal)
+                
+                if entry.rates.count &gt; 1 {
+                    HStack {
+                        Text(entry.rates[1].flagEmoji)
+                            .font(.title2)
+                        
+                        VStack(alignment: .leading) {
+                            Text(entry.rates[1].code)
+                                .font(.headline)
+                                .foregroundColor(.white)
+                            
+                            Text("\(entry.rates[1].formattedRate()) ₽")
+                                .font(.subheadline)
+                                .foregroundColor(.white)
+                        }
+                    }
+                }
+            }
+            
+            Spacer()
+            
+            // Отладочная информация
+            Text(entry.debug)
+                .font(.caption2)
+                .foregroundColor(.red)
+                .lineLimit(1)
+                .padding(.bottom, 2)
+        }
+        .padding(10)
+        .background(Color.black)
+    }
+}
+
+struct CurrencyWidgetLargeView: View {
+    var entry: CurrencyRateProvider.Entry
+    
+    var body: some View {
+        VStack(spacing: 10) {
+            VStack(spacing: 15) {
+                ForEach(entry.rates) { rate in
+                    HStack(spacing: 15) {
+                        ZStack {
+                            Circle()
+                                .fill(Color.white)
+                                .frame(width: 50, height: 50)
+                            Text(rate.flagEmoji)
+                                .font(.title)
+                        }
+                        
+                        VStack(alignment: .leading, spacing: 5) {
+                            Text(rate.name)
+                                .font(.headline)
+                                .foregroundColor(.white)
+                            
+                            Text(rate.code)
+                                .font(.subheadline)
+                                .foregroundColor(.gray)
+                        }
+                        
+                        Spacer()
+                        
+                        Text("\(rate.formattedRate()) ₽")
+                            .font(.title3)
+                            .fontWeight(.bold)
+                            .foregroundColor(.white)
+                    }
+                    .padding(.horizontal)
+                    
+                    if rate.id != entry.rates.last?.id {
+                        Divider()
+                            .background(Color.gray.opacity(0.3))
+                            .padding(.horizontal)
+                    }
+                }
+            }
+            .padding(.top, 15)
+            
+            Spacer()
+            
+            VStack(spacing: 2) {
+                Text("Обновлено: \(entry.lastUpdated)")
+                    .font(.caption)
+                    .foregroundColor(.gray)
+                
+                Text(entry.debug)
+                    .font(.caption2)
+                    .foregroundColor(.red)
+                    .lineLimit(1)
+            }
+            .padding(.horizontal)
+        }
+        .padding(.vertical, 15)
+        .background(Color.black)
+group.com.bonitalabs.currencyconverter</string>
+	</array>
+	<key>com.apple.security.network.client</key>
+	<true/>
+	<key>com.apple.security.network.server</key>
+	<true/>
+</dict>
+</plist>

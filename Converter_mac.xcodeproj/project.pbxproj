@@ -1,0 +1,741 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 77;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		E0794A872D864D24006D4690 /* info.plist in Resources */ = {isa = PBXBuildFile; fileRef = E0794A862D864D24006D4690 /* info.plist */; };
+		E0794A952D8655FD006D4690 /* WidgetKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E0794A942D8655FD006D4690 /* WidgetKit.framework */; };
+		E0794A972D8655FD006D4690 /* SwiftUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E0794A962D8655FD006D4690 /* SwiftUI.framework */; };
+		E0794AA52D8655FF006D4690 /* CurrencyWidgetExtensionExtension.appex in Embed Foundation Extensions */ = {isa = PBXBuildFile; fileRef = E0794A922D8655FD006D4690 /* CurrencyWidgetExtensionExtension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		E0794A2C2D864619006D4690 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = E0794A122D864617006D4690 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = E0794A192D864617006D4690;
+			remoteInfo = Converter_mac;
+		};
+		E0794A362D864619006D4690 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = E0794A122D864617006D4690 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = E0794A192D864617006D4690;
+			remoteInfo = Converter_mac;
+		};
+		E0794AA32D8655FF006D4690 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = E0794A122D864617006D4690 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = E0794A912D8655FD006D4690;
+			remoteInfo = CurrencyWidgetExtensionExtension;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		E0794AAA2D8655FF006D4690 /* Embed Foundation Extensions */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 13;
+			files = (
+				E0794AA52D8655FF006D4690 /* CurrencyWidgetExtensionExtension.appex in Embed Foundation Extensions */,
+			);
+			name = "Embed Foundation Extensions";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
+/* Begin PBXFileReference section */
+		E0794A1A2D864617006D4690 /* Converter_mac.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Converter_mac.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		E0794A2B2D864619006D4690 /* Converter_macTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = Converter_macTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		E0794A352D864619006D4690 /* Converter_macUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = Converter_macUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		E0794A862D864D24006D4690 /* info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = info.plist; sourceTree = "<group>"; };
+		E0794A922D8655FD006D4690 /* CurrencyWidgetExtensionExtension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = CurrencyWidgetExtensionExtension.appex; sourceTree = BUILT_PRODUCTS_DIR; };
+		E0794A942D8655FD006D4690 /* WidgetKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WidgetKit.framework; path = System/Library/Frameworks/WidgetKit.framework; sourceTree = SDKROOT; };
+		E0794A962D8655FD006D4690 /* SwiftUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwiftUI.framework; path = System/Library/Frameworks/SwiftUI.framework; sourceTree = SDKROOT; };
+/* End PBXFileReference section */
+
+/* Begin PBXFileSystemSynchronizedBuildFileExceptionSet section */
+		E0794AA62D8655FF006D4690 /* Exceptions for "CurrencyWidgetExtension" folder in "CurrencyWidgetExtensionExtension" target */ = {
+			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
+			membershipExceptions = (
+				Info.plist,
+			);
+			target = E0794A912D8655FD006D4690 /* CurrencyWidgetExtensionExtension */;
+		};
+/* End PBXFileSystemSynchronizedBuildFileExceptionSet section */
+
+/* Begin PBXFileSystemSynchronizedRootGroup section */
+		E0794A1C2D864617006D4690 /* Converter_mac */ = {
+			isa = PBXFileSystemSynchronizedRootGroup;
+			path = Converter_mac;
+			sourceTree = "<group>";
+		};
+		E0794A2E2D864619006D4690 /* Converter_macTests */ = {
+			isa = PBXFileSystemSynchronizedRootGroup;
+			path = Converter_macTests;
+			sourceTree = "<group>";
+		};
+		E0794A382D864619006D4690 /* Converter_macUITests */ = {
+			isa = PBXFileSystemSynchronizedRootGroup;
+			path = Converter_macUITests;
+			sourceTree = "<group>";
+		};
+		E0794A982D8655FD006D4690 /* CurrencyWidgetExtension */ = {
+			isa = PBXFileSystemSynchronizedRootGroup;
+			exceptions = (
+				E0794AA62D8655FF006D4690 /* Exceptions for "CurrencyWidgetExtension" folder in "CurrencyWidgetExtensionExtension" target */,
+			);
+			path = CurrencyWidgetExtension;
+			sourceTree = "<group>";
+		};
+/* End PBXFileSystemSynchronizedRootGroup section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		E0794A172D864617006D4690 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		E0794A282D864619006D4690 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		E0794A322D864619006D4690 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		E0794A8F2D8655FD006D4690 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				E0794A972D8655FD006D4690 /* SwiftUI.framework in Frameworks */,
+				E0794A952D8655FD006D4690 /* WidgetKit.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		E0794A112D864617006D4690 = {
+			isa = PBXGroup;
+			children = (
+				E0794A862D864D24006D4690 /* info.plist */,
+				E0794A1C2D864617006D4690 /* Converter_mac */,
+				E0794A2E2D864619006D4690 /* Converter_macTests */,
+				E0794A382D864619006D4690 /* Converter_macUITests */,
+				E0794A982D8655FD006D4690 /* CurrencyWidgetExtension */,
+				E0794A932D8655FD006D4690 /* Frameworks */,
+				E0794A1B2D864617006D4690 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		E0794A1B2D864617006D4690 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				E0794A1A2D864617006D4690 /* Converter_mac.app */,
+				E0794A2B2D864619006D4690 /* Converter_macTests.xctest */,
+				E0794A352D864619006D4690 /* Converter_macUITests.xctest */,
+				E0794A922D8655FD006D4690 /* CurrencyWidgetExtensionExtension.appex */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		E0794A932D8655FD006D4690 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				E0794A942D8655FD006D4690 /* WidgetKit.framework */,
+				E0794A962D8655FD006D4690 /* SwiftUI.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		E0794A192D864617006D4690 /* Converter_mac */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = E0794A3F2D864619006D4690 /* Build configuration list for PBXNativeTarget "Converter_mac" */;
+			buildPhases = (
+				E0794A162D864617006D4690 /* Sources */,
+				E0794A172D864617006D4690 /* Frameworks */,
+				E0794A182D864617006D4690 /* Resources */,
+				E0794AAA2D8655FF006D4690 /* Embed Foundation Extensions */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				E0794AA42D8655FF006D4690 /* PBXTargetDependency */,
+			);
+			fileSystemSynchronizedGroups = (
+				E0794A1C2D864617006D4690 /* Converter_mac */,
+			);
+			name = Converter_mac;
+			packageProductDependencies = (
+			);
+			productName = Converter_mac;
+			productReference = E0794A1A2D864617006D4690 /* Converter_mac.app */;
+			productType = "com.apple.product-type.application";
+		};
+		E0794A2A2D864619006D4690 /* Converter_macTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = E0794A422D864619006D4690 /* Build configuration list for PBXNativeTarget "Converter_macTests" */;
+			buildPhases = (
+				E0794A272D864619006D4690 /* Sources */,
+				E0794A282D864619006D4690 /* Frameworks */,
+				E0794A292D864619006D4690 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				E0794A2D2D864619006D4690 /* PBXTargetDependency */,
+			);
+			fileSystemSynchronizedGroups = (
+				E0794A2E2D864619006D4690 /* Converter_macTests */,
+			);
+			name = Converter_macTests;
+			packageProductDependencies = (
+			);
+			productName = Converter_macTests;
+			productReference = E0794A2B2D864619006D4690 /* Converter_macTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		E0794A342D864619006D4690 /* Converter_macUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = E0794A452D864619006D4690 /* Build configuration list for PBXNativeTarget "Converter_macUITests" */;
+			buildPhases = (
+				E0794A312D864619006D4690 /* Sources */,
+				E0794A322D864619006D4690 /* Frameworks */,
+				E0794A332D864619006D4690 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				E0794A372D864619006D4690 /* PBXTargetDependency */,
+			);
+			fileSystemSynchronizedGroups = (
+				E0794A382D864619006D4690 /* Converter_macUITests */,
+			);
+			name = Converter_macUITests;
+			packageProductDependencies = (
+			);
+			productName = Converter_macUITests;
+			productReference = E0794A352D864619006D4690 /* Converter_macUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+		E0794A912D8655FD006D4690 /* CurrencyWidgetExtensionExtension */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = E0794AA72D8655FF006D4690 /* Build configuration list for PBXNativeTarget "CurrencyWidgetExtensionExtension" */;
+			buildPhases = (
+				E0794A8E2D8655FD006D4690 /* Sources */,
+				E0794A8F2D8655FD006D4690 /* Frameworks */,
+				E0794A902D8655FD006D4690 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			fileSystemSynchronizedGroups = (
+				E0794A982D8655FD006D4690 /* CurrencyWidgetExtension */,
+			);
+			name = CurrencyWidgetExtensionExtension;
+			packageProductDependencies = (
+			);
+			productName = CurrencyWidgetExtensionExtension;
+			productReference = E0794A922D8655FD006D4690 /* CurrencyWidgetExtensionExtension.appex */;
+			productType = "com.apple.product-type.app-extension";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		E0794A122D864617006D4690 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				BuildIndependentTargetsInParallel = 1;
+				LastSwiftUpdateCheck = 1620;
+				LastUpgradeCheck = 1620;
+				TargetAttributes = {
+					E0794A192D864617006D4690 = {
+						CreatedOnToolsVersion = 16.2;
+					};
+					E0794A2A2D864619006D4690 = {
+						CreatedOnToolsVersion = 16.2;
+						TestTargetID = E0794A192D864617006D4690;
+					};
+					E0794A342D864619006D4690 = {
+						CreatedOnToolsVersion = 16.2;
+						TestTargetID = E0794A192D864617006D4690;
+					};
+					E0794A912D8655FD006D4690 = {
+						CreatedOnToolsVersion = 16.2;
+					};
+				};
+			};
+			buildConfigurationList = E0794A152D864617006D4690 /* Build configuration list for PBXProject "Converter_mac" */;
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = E0794A112D864617006D4690;
+			minimizedProjectReferenceProxies = 1;
+			preferredProjectObjectVersion = 77;
+			productRefGroup = E0794A1B2D864617006D4690 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				E0794A192D864617006D4690 /* Converter_mac */,
+				E0794A2A2D864619006D4690 /* Converter_macTests */,
+				E0794A342D864619006D4690 /* Converter_macUITests */,
+				E0794A912D8655FD006D4690 /* CurrencyWidgetExtensionExtension */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		E0794A182D864617006D4690 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				E0794A872D864D24006D4690 /* info.plist in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		E0794A292D864619006D4690 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		E0794A332D864619006D4690 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		E0794A902D8655FD006D4690 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		E0794A162D864617006D4690 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		E0794A272D864619006D4690 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		E0794A312D864619006D4690 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		E0794A8E2D8655FD006D4690 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		E0794A2D2D864619006D4690 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = E0794A192D864617006D4690 /* Converter_mac */;
+			targetProxy = E0794A2C2D864619006D4690 /* PBXContainerItemProxy */;
+		};
+		E0794A372D864619006D4690 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = E0794A192D864617006D4690 /* Converter_mac */;
+			targetProxy = E0794A362D864619006D4690 /* PBXContainerItemProxy */;
+		};
+		E0794AA42D8655FF006D4690 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = E0794A912D8655FD006D4690 /* CurrencyWidgetExtensionExtension */;
+			targetProxy = E0794AA32D8655FF006D4690 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin XCBuildConfiguration section */
+		E0794A3D2D864619006D4690 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu17;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
+				MACOSX_DEPLOYMENT_TARGET = 15.2;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = macosx;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "DEBUG $(inherited)";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		E0794A3E2D864619006D4690 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu17;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
+				MACOSX_DEPLOYMENT_TARGET = 15.2;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = macosx;
+				SWIFT_COMPILATION_MODE = wholemodule;
+			};
+			name = Release;
+		};
+		E0794A402D864619006D4690 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = Converter_mac/Converter_mac.entitlements;
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_ASSET_PATHS = "\"Converter_mac/Preview Content\"";
+				DEVELOPMENT_TEAM = SVLHJT6P6Y;
+				ENABLE_HARDENED_RUNTIME = YES;
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "bonitalabs.Converter-mac";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+			};
+			name = Debug;
+		};
+		E0794A412D864619006D4690 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = Converter_mac/Converter_mac.entitlements;
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_ASSET_PATHS = "\"Converter_mac/Preview Content\"";
+				DEVELOPMENT_TEAM = SVLHJT6P6Y;
+				ENABLE_HARDENED_RUNTIME = YES;
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "bonitalabs.Converter-mac";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+			};
+			name = Release;
+		};
+		E0794A432D864619006D4690 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = SVLHJT6P6Y;
+				GENERATE_INFOPLIST_FILE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 15.2;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "bonitalabs.Converter-macTests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Converter_mac.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/Converter_mac";
+			};
+			name = Debug;
+		};
+		E0794A442D864619006D4690 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = SVLHJT6P6Y;
+				GENERATE_INFOPLIST_FILE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 15.2;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "bonitalabs.Converter-macTests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Converter_mac.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/Converter_mac";
+			};
+			name = Release;
+		};
+		E0794A462D864619006D4690 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = SVLHJT6P6Y;
+				GENERATE_INFOPLIST_FILE = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "bonitalabs.Converter-macUITests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TEST_TARGET_NAME = Converter_mac;
+			};
+			name = Debug;
+		};
+		E0794A472D864619006D4690 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = SVLHJT6P6Y;
+				GENERATE_INFOPLIST_FILE = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "bonitalabs.Converter-macUITests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TEST_TARGET_NAME = Converter_mac;
+			};
+			name = Release;
+		};
+		E0794AA82D8655FF006D4690 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				ASSETCATALOG_COMPILER_WIDGET_BACKGROUND_COLOR_NAME = WidgetBackground;
+				CODE_SIGN_ENTITLEMENTS = CurrencyWidgetExtension/CurrencyWidgetExtension.entitlements;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = SVLHJT6P6Y;
+				ENABLE_HARDENED_RUNTIME = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = CurrencyWidgetExtension/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = CurrencyWidgetExtension;
+				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+					"@executable_path/../../../../Frameworks",
+				);
+				MACOSX_DEPLOYMENT_TARGET = 14.0;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "bonitalabs.Converter-mac.CurrencyWidgetExtension";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+			};
+			name = Debug;
+		};
+		E0794AA92D8655FF006D4690 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				ASSETCATALOG_COMPILER_WIDGET_BACKGROUND_COLOR_NAME = WidgetBackground;
+				CODE_SIGN_ENTITLEMENTS = CurrencyWidgetExtension/CurrencyWidgetExtension.entitlements;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = SVLHJT6P6Y;
+				ENABLE_HARDENED_RUNTIME = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = CurrencyWidgetExtension/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = CurrencyWidgetExtension;
+				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+					"@executable_path/../../../../Frameworks",
+				);
+				MACOSX_DEPLOYMENT_TARGET = 14.0;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "bonitalabs.Converter-mac.CurrencyWidgetExtension";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		E0794A152D864617006D4690 /* Build configuration list for PBXProject "Converter_mac" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				E0794A3D2D864619006D4690 /* Debug */,
+				E0794A3E2D864619006D4690 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		E0794A3F2D864619006D4690 /* Build configuration list for PBXNativeTarget "Converter_mac" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				E0794A402D864619006D4690 /* Debug */,
+				E0794A412D864619006D4690 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		E0794A422D864619006D4690 /* Build configuration list for PBXNativeTarget "Converter_macTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				E0794A432D864619006D4690 /* Debug */,
+				E0794A442D864619006D4690 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		E0794A452D864619006D4690 /* Build configuration list for PBXNativeTarget "Converter_macUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				E0794A462D864619006D4690 /* Debug */,
+				E0794A472D864619006D4690 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		E0794AA72D8655FF006D4690 /* Build configuration list for PBXNativeTarget "CurrencyWidgetExtensionExtension" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				E0794AA82D8655FF006D4690 /* Debug */,
+				E0794AA92D8655FF006D4690 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = E0794A122D864617006D4690 /* Project object */;
+}
