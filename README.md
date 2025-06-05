@@ -31,10 +31,10 @@
 ## 📸 Скриншоты
 
 ### Главная страница
-<img width="373" alt="Снимок экрана 2025-06-05 в 13 49 57" src="https://github.com/user-attachments/assets/9335a00c-9f6e-43df-9e21-38fdace86d17" />
+<img width="380" alt="Снимок экрана 2025-06-05 в 13 49 57" src="https://github.com/user-attachments/assets/9335a00c-9f6e-43df-9e21-38fdace86d17" />
 
 ### Страница с выбором валют
-<img width="452" alt="Снимок экрана 2025-06-05 в 13 50 13" src="https://github.com/user-attachments/assets/65ba4938-deae-486f-a312-25764b225b45" />
+<img width="380" alt="Снимок экрана 2025-06-05 в 13 50 13" src="https://github.com/user-attachments/assets/65ba4938-deae-486f-a312-25764b225b45" />
 
 ### Виджеты приложения на рабочем столе
 <img width="521" alt="Снимок экрана 2025-06-05 в 13 50 55" src="https://github.com/user-attachments/assets/8d6ec27f-d304-4826-b5fe-58ac79c63437" />
