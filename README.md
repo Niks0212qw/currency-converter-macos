@@ -28,6 +28,11 @@
 - 🇬🇧 Британский фунт (GBP)
 - 🇯🇵 Японская йена (JPY)
 
+##Главная страница 
+<img width="373" alt="Снимок экрана 2025-06-05 в 13 49 57" src="https://github.com/user-attachments/assets/f1ee89ee-7b03-4b2b-99cb-87e2bdceb136" />
+##Страница с выбором валют
+<img width="521" alt="Снимок экрана 2025-06-05 в 13 50 55" src="https://github.com/user-attachments/assets/4ad63f70-cfb5-4d16-b503-836c3706abbc" />
+
 ## 📥 Установка готового приложения
 
 ### Скачать готовое приложение
